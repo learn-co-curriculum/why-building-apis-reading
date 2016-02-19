@@ -83,8 +83,11 @@ steadfastly holding on to the beta version of your API.
    course, but again, you'll be in control of what applications can
 access your API.
 
-If multiple web front-ends are accessing your internal API, you're
-unlikely to use client ID/secret access to authorize requests.
+We don't want to store access keys or passwords on the client of your
+internal API in cookies or JavaScript, because then it wouldn't be secure. And depending on the
+use of the API, it might not make sense to do user-based authentication
+at all. So how do we ensure that only valid web applications are
+accessing our internal API?
 
 Browsers implement something called [Same Origin Security Policy](https://en.wikipedia.org/wiki/Same-origin_policy), which prevents a page from running a script to access data from a different origin.
 
