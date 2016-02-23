@@ -16,16 +16,16 @@ The choice to build and provide an API boils down to one of two options:
    application has valuable integration points for other
 applications to provide new and interesting services, so you build an *external* API and open it up to third-party developers.
 2. Your data is only valuable to your company, but you access it in
-   multiple ways (e.g. a web application, IOS application, and Android
-application all for your company) or have a distributed/service architecture, or you're even just using a front-end framework with Rails as an API back-end, so you build an
+   multiple ways (e.g. a web application, iOS application, and Android
+application all for your company), or you have a distributed/service architecture, or you're even just using a front-end framework with Rails as an API back-end, so you build an
 *internal* API to provide common access to all internally-managed
 clients.
 
 ### External API Considerations
 
 External APIs are extremely valuable to the growth of the web. Because
-of External APIs you can watch your Uber driver approach and plot your
-course with Google maps and get a text when the driver is close and pay
+of external APIs you can watch your Uber driver approach, plot your
+course with Google maps, get a text when the driver is close, and pay
 without ever touching your wallet.
 
 Because an external API is intended to be used by a wide variety of
@@ -35,10 +35,9 @@ lot of things to account for when building one.
 **Documentation:** An external API must be *extensively* documented
    to support your developer community. This includes not only
 functional specifications, but code samples, sometimes in multiple
-languages.
+languages (human AND computer!).
 
-Sometimes you'll want to provide tools to live-test the API, such as with
-Foursquare. You might even provide libraries (such as a gem) for the
+Sometimes you'll want to provide tools to live-test the API, such as Foursquare does. You might even provide libraries (such as a gem) for the
 languages you support.
 
 **Versioning:** We saw this with the Foursquare API. Versioning is an
@@ -48,10 +47,14 @@ rely on your API.
 
 **Authentication and Security:** Allowing external access to your data is a
    serious thing, so your external API needs robust access control and
-security.
+security. We came across this when consuming the Foursquare and Github
+APIs. We had to register our application, pass ID and secret pairs to
+the API, and sometimes use OAuth tokens on behalf of a user - all
+security implementations that need to be set up and maintained by the
+API provider.
 
 **Quality of Service:** Once you have third-party developers relying
-   on your API, there are expectations around quality, uptime, response
+   on your API, there are expectations around quality, uptime, and response
 time.
 
 You also have to consider things like **rate limiting**, where you
@@ -92,8 +95,20 @@ accessing our internal API?
 Browsers implement something called [Same Origin Security Policy](https://en.wikipedia.org/wiki/Same-origin_policy), which prevents a page from running a script to access data from a different origin.
 
 This is great because by default it means your API can't be accessed by
-another domain. But what about the ones you want to give access to? For
-that, we can configure [Cross Origin Resource Sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), or **CORS**, to allow whitelist access to our domains while still blocking others. We won't be doing much with this in this unit, but there are great tools like [rack-cors](https://github.com/cyu/rack-cors) out there to help.
+another domain or website.
+
+But what if you want to give another domain access to your API? To do
+that, we can configure [Cross Origin Resource Sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), or **CORS**. CORS allows us to specify that certain other sites are allowed access while still blocking others.
+
+**Note:** This type of access control is called *whitelisting*. That
+is, creating a list of allowed domains. This is the opposite of
+*blacklist* control, where you allow anything except for a list of
+explicitly blocked sites. Neither should be confused with *The
+Blacklist*, a fun but ridiculous James Spader show.
+
+![spader](http://i.giphy.com/rkVtfsPSoCKoE.gif)
+
+We won't be doing much with this in this unit, but there are great tools like [rack-cors](https://github.com/cyu/rack-cors) out there to help.
 
 **Quality of Service:** You don't get to slack on this one with your
 internal APIs. In fact, there's a good chance that your internal API is
