@@ -61,15 +61,15 @@ You also have to consider things like **rate limiting**, where you
 monitor access and only allow a certain number of API calls per
 application in a given timeframe.
 
-We won't be covering much of this in this unit, but these are all
-important considerations if you plan to make your API public.
+These are all important considerations if you plan to make your API public.
 
 ### Internal API Considerations
 
 An internal API is a great way to provide access to data for multiple internal
 applications. While there are still many things to consider, the
 concerns for internal APIs are generally less strenuous because you are
-usually in control of all of the applications that will have access.
+usually in control of all of the applications that will have access (or you
+can talk to the people who are in control).
 
 **Documentation:** Documentation is still important, but with an
    internal API you generally won't have to provide support for such a
