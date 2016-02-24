@@ -2,8 +2,8 @@
 
 ## Objectives
 
-  1. Understand the value of providing an API
-  2. Understand the design considerations when creating APIs
+  1. Explain the value of providing an API
+  2. Explain the design considerations when creating APIs
 
 ## Lesson
 
