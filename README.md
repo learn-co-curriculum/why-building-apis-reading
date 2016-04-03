@@ -114,7 +114,7 @@ We won't be doing much with this in this unit, but there are great tools like [r
 internal APIs. In fact, there's a good chance that your internal API is
 mission-critical and handles more requests than an external API might.
 
-You might not need to worry about rate limiting, but peformance, uptime,
+You might not need to worry about rate limiting, but performance, uptime,
 and response time are still extremely important no matter who's
 accessing your API.
 
@@ -124,3 +124,5 @@ We've looked at the reasons you might choose to create an internal or
 external API, and examined some of the considerations with creating
 each. Next we'll be diving in and building some internal APIs from the
 ground up.
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/why-building-apis-reading'>Why Build an API? </a> on Learn.co and start learning to code for free.</p>
